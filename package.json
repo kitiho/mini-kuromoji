@@ -1,0 +1,17 @@
+{
+  "name": "mini-kuromoji",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx example/load-node.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "doublearray": "^0.0.2",
+    "tsx": "^3.12.2",
+    "typescript": "^4.9.4"
+  }
+}
