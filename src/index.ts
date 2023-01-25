@@ -1,11 +1,11 @@
-import TokenizerBuilder from "./TokenizerBuilder"
+import TokenizerBuilder from './TokenizerBuilder'
 
 const kuromoji = {
-  builder: function (option: { dicPath?: string }) {
+  builder(option: { dicPath?: string }) {
     return new TokenizerBuilder(option)
   },
-  dictionaryBuilder: function () {
+  dictionaryBuilder() {
     // return new DictionaryBuilder()
-  }
+  },
 }
 export default kuromoji

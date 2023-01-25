@@ -1,8 +1,8 @@
-import kuromoji from "../src/index"
+import kuromoji from '../src/index'
 
-var DIC_DIR = "dict/";
+const DIC_DIR = 'dict/'
 
-kuromoji.builder({ dicPath: DIC_DIR }).build(function (error, tokenizer) {
-    var path = tokenizer.tokenize("すもももももももものうち");
-    console.log(path);
-});
+kuromoji.builder({ dicPath: DIC_DIR }).build((error, tokenizer) => {
+  const path = tokenizer.tokenize('すもももももももものうち')
+  console.log(path)
+})
