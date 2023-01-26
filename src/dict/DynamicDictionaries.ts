@@ -26,6 +26,13 @@ class DynamicDictionaries {
     this.trie = doublearray.load(base_buffer, check_buffer)
     return this
   }
+
+  loadTokenInfoDictionaries(token_info_buffer, pos_buffer, target_map_buffer) {
+    this.token_info_dictionary.loadDictionary(token_info_buffer)
+    this.token_info_dictionary.loadPosVector(pos_buffer)
+    this.token_info_dictionary.loadTargetMap(target_map_buffer)
+    return this
+  }
 }
 
 export default DynamicDictionaries

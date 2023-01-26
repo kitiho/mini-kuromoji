@@ -50,9 +50,9 @@ class DictionaryLoader {
           if (err)
             return callback(err)
 
-          const token_info_buffer = new Uint8Array(buffers[0])
-          const pos_buffer = new Uint8Array(buffers[1])
-          const target_map_buffer = new Uint8Array(buffers[2])
+          const token_info_buffer = new Uint8Array(buffers![0] as number)
+          const pos_buffer = new Uint8Array(buffers![1] as number)
+          const target_map_buffer = new Uint8Array(buffers![2] as number)
 
           dic.loadTokenInfoDictionaries(token_info_buffer, pos_buffer, target_map_buffer)
           callback(null)
