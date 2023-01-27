@@ -1,5 +1,7 @@
 /* eslint-disable no-throw-literal */
 
+import type { IBuffer } from 'src/types'
+
 /**
  * Convert String (UTF-16) to UTF-8 ArrayBuffer
  *
@@ -114,7 +116,7 @@ const utf8BytesToString = function (bytes: string | any[]) {
 class ByteBuffer {
   buffer: Uint8Array
   position: number
-  constructor(arg: Uint8Array | number | null) {
+  constructor(arg?: IBuffer) {
     let initial_size
     if (arg == null) {
       initial_size = 1024 * 1024
@@ -157,7 +159,7 @@ class ByteBuffer {
     this.buffer[this.position++] = b
   }
 
-  get(index: number | null) {
+  get(index?: number | null) {
     if (index == null) {
       index = this.position
       this.position += 1
@@ -212,7 +214,7 @@ class ByteBuffer {
     this.put(b3)
   }
 
-  getInt(index: number | null) {
+  getInt(index?: number | null) {
     if (index == null) {
       index = this.position
       this.position += 4
@@ -240,7 +242,7 @@ class ByteBuffer {
     this.put(0)
   }
 
-  getString(index: number | null) {
+  getString(index?: number | null) {
     const buf = []
     let ch
     if (index == null)

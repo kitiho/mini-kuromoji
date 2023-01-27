@@ -1,4 +1,5 @@
 import doublearray from 'doublearray'
+import type { IBuffer } from 'src/types'
 import ConnectionCosts from './ConnectionCosts'
 import TokenInfoDictionary from './TokenInfoDictionary'
 import UnknownDictionary from './UnknownDictionary'
@@ -22,15 +23,20 @@ class DynamicDictionaries {
     this.unknown_dictionary = unknown_dictionary ?? new UnknownDictionary()
   }
 
-  loadTrie(base_buffer, check_buffer) {
+  loadTrie(base_buffer: any, check_buffer: any) {
     this.trie = doublearray.load(base_buffer, check_buffer)
     return this
   }
 
-  loadTokenInfoDictionaries(token_info_buffer, pos_buffer, target_map_buffer) {
+  loadTokenInfoDictionaries(token_info_buffer: IBuffer, pos_buffer: IBuffer, target_map_buffer: IBuffer) {
     this.token_info_dictionary.loadDictionary(token_info_buffer)
     this.token_info_dictionary.loadPosVector(pos_buffer)
     this.token_info_dictionary.loadTargetMap(target_map_buffer)
+    return this
+  }
+
+  loadUnknownDictionaries(unk_buffer: IBuffer, unk_pos_buffer: IBuffer, unk_map_buffer: IBuffer, cat_map_buffer: IBuffer, compat_cat_map_buffer: IBuffer, invoke_def_buffer: IBuffer) {
+    this.unknown_dictionary.loadUnknownDictionaries(unk_buffer, unk_pos_buffer, unk_map_buffer, cat_map_buffer, compat_cat_map_buffer, invoke_def_buffer)
     return this
   }
 }

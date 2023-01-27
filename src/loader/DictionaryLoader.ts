@@ -82,12 +82,12 @@ class DictionaryLoader {
           if (err)
             return callback(err)
 
-          const unk_buffer = new Uint8Array(buffers[0])
-          const unk_pos_buffer = new Uint8Array(buffers[1])
-          const unk_map_buffer = new Uint8Array(buffers[2])
-          const cat_map_buffer = new Uint8Array(buffers[3])
-          const compat_cat_map_buffer = new Uint32Array(buffers[4])
-          const invoke_def_buffer = new Uint8Array(buffers[5])
+          const unk_buffer = new Uint8Array(buffers![0] as number)
+          const unk_pos_buffer = new Uint8Array(buffers![1] as number)
+          const unk_map_buffer = new Uint8Array(buffers![2] as number)
+          const cat_map_buffer = new Uint8Array(buffers![3] as number)
+          const compat_cat_map_buffer = new Uint32Array(buffers![4] as number)
+          const invoke_def_buffer = new Uint8Array(buffers![5] as number)
 
           dic.loadUnknownDictionaries(unk_buffer, unk_pos_buffer, unk_map_buffer, cat_map_buffer, compat_cat_map_buffer, invoke_def_buffer)
           // dic.loadUnknownDictionaries(char_buffer, unk_buffer);
