@@ -12,7 +12,7 @@ class DictionaryLoader {
     this.dic_path = dic_path
   }
 
-  load() {
+  load(load_callback: { (err: any, dic: any): void; (arg0: Error | null | undefined, arg1: DynamicDictionaries): void }) {
     const dic = this.dic
     const dic_path = this.dic_path
     const loadArrayBuffer = this.loadArrayBuffer
@@ -60,7 +60,7 @@ class DictionaryLoader {
       },
       // Connection cost matrix
       function (callback) {
-        loadArrayBuffer(path.join(dic_path, 'cc.dat.gz'), (err, buffer) => {
+        loadArrayBuffer(path.join(dic_path, 'cc.dat.gz'), (err, buffer: any) => {
           if (err)
             return callback(err)
 

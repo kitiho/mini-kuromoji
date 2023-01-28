@@ -11,10 +11,10 @@ class DynamicDictionaries {
   unknown_dictionary: UnknownDictionary
 
   constructor(
-    trie?: null | undefined,
-    token_info_dictionary?: undefined,
-    connection_costs?: undefined,
-    unknown_dictionary?: undefined) {
+    trie?: any | null | undefined,
+    token_info_dictionary?: any,
+    connection_costs?: any,
+    unknown_dictionary?: any) {
     this.trie = trie ?? doublearray.builder(0).build([
       { k: '', v: 1 },
     ])
@@ -37,6 +37,11 @@ class DynamicDictionaries {
 
   loadUnknownDictionaries(unk_buffer: IBuffer, unk_pos_buffer: IBuffer, unk_map_buffer: IBuffer, cat_map_buffer: IBuffer, compat_cat_map_buffer: IBuffer, invoke_def_buffer: IBuffer) {
     this.unknown_dictionary.loadUnknownDictionaries(unk_buffer, unk_pos_buffer, unk_map_buffer, cat_map_buffer, compat_cat_map_buffer, invoke_def_buffer)
+    return this
+  }
+
+  loadConnectionCosts(cc_buffer: Int16Array) {
+    this.connection_costs.loadConnectionCosts(cc_buffer)
     return this
   }
 }
